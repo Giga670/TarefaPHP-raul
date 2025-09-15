@@ -43,5 +43,42 @@ $maca->vender(5);
 
 $maca->aplicarDesconto(10);
 
+class Pedido{
+    public $cliente;
+    public $pedido= [];
+    public $total;
+    public $sim;
+    public function __construct($cliente,) {
+        $this->cliente = $cliente;
+    }
+    public function  adicionarItem(Produto $produto, int $quantidade){
+        array_push($this->pedido, $quantidade,$produto);
+    }
+    public function total(){
+        for ($x=1; $x<sizeof($this->pedido);$x+=2){
+            $valor=$this->pedido[$x];
+            
+            $total=$total+$valor->preco*$this->pedido[$x-1];
+            echo"seu total e $total";
+        }
+    }
+    public function detalhes(){
+        echo"$this->cliente";
+        for ($x=0; $x<sizeof($this->pedido);$x++){
+            $sim=$this->pedido;
+            echo"$sim";
+            $valor=$this->pedido[$x];
+            $valor->preco;
+            echo"$valor";
+        
+        }
+
+    }
+}
+$pedido1= new Pedido("luis");
+$pedido1->adicionarItem($maca,10);
+$pedido1->total();
+$pedido1->detalhes();
+
 ?>
     
